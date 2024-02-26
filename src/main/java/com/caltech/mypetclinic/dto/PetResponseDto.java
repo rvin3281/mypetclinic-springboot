@@ -1,13 +1,10 @@
 package com.caltech.mypetclinic.dto;
 
-import java.sql.Date;
+
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
-import com.caltech.mypetclinic.entity.Owner;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
