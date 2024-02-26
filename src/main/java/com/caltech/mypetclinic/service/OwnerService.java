@@ -1,17 +1,17 @@
 package com.caltech.mypetclinic.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.caltech.mypetclinic.dto.OwnerRequestDto;
 import com.caltech.mypetclinic.dto.OwnerResponseDto;
-import com.caltech.mypetclinic.dto.PetRequestDto;
+
 import com.caltech.mypetclinic.dto.UpdateOwnerDto;
 import com.caltech.mypetclinic.entity.Owner;
-import com.caltech.mypetclinic.entity.Pet;
+
 import com.caltech.mypetclinic.exception.customException.CustomErrorException;
 import com.caltech.mypetclinic.exception.customException.NotFoundException;
 import com.caltech.mypetclinic.exception.customException.NotSaveException;
