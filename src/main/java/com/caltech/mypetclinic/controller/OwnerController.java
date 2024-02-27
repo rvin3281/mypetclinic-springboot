@@ -3,6 +3,7 @@ package com.caltech.mypetclinic.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,11 +45,16 @@ public class OwnerController {
 	@Autowired
 	private OwnerResponse response;
 	
+	Logger logger = Logger.getAnonymousLogger();
 	
 	@PostMapping("")
 	public ResponseEntity<Object> saveOwner(@RequestBody @Valid OwnerRequestDto ownerRequestDto)
 	{
+		logger.info(ownerRequestDto.toString());
 		OwnerResponseDto ownerResponseDto = service.saveOwner(ownerRequestDto);
+		
+		logger.info(ownerResponseDto.toString());
+		
 		return response.responseWithData(ownerResponseDto, "success", HttpStatus.CREATED);
 	}
 	

@@ -1,7 +1,8 @@
 package com.caltech.mypetclinic.service;
 
 import java.util.List;
-
+import java.util.Set;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ import com.caltech.mypetclinic.exception.customException.NotSaveException;
 import com.caltech.mypetclinic.mapper.OwnerMapper;
 import com.caltech.mypetclinic.repository.OwnerRepo;
 
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
+
 @Service
 public class OwnerService {
 
@@ -26,13 +30,17 @@ public class OwnerService {
 	
 	@Autowired
 	OwnerMapper mapper;
+	
+	Logger logger = Logger.getAnonymousLogger();
 
 	public OwnerResponseDto saveOwner(OwnerRequestDto ownerRequestDto)
 	{
+
 		Owner owner = mapper.OwnerRequestDtoToOwner(ownerRequestDto);
 		repo.save(owner);
 		
 		OwnerResponseDto ownerResponseDtoSaved = mapper.OwnerToOwnerResponseDto(owner);
+		logger.info(ownerResponseDtoSaved.toString());
 		return ownerResponseDtoSaved;
 	}
 	
